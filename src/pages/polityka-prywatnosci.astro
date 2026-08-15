@@ -1,0 +1,172 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Strona główna",
+            item: "https://www.wojciechsmolarek.pl/",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Polityka prywatności",
+            item: "https://www.wojciechsmolarek.pl/polityka-prywatnosci",
+        },
+    ],
+};
+
+const lastUpdated = "2024-12-20";
+---
+
+<MainLayout
+    title="Polityka prywatności | Wojciech Smolarek"
+    description="Polityka prywatności strony www.wojciechsmolarek.pl — zasady przetwarzania danych osobowych, cele przetwarzania, prawa użytkowników RODO."
+>
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(breadcrumbJsonLd)}
+    />
+
+    <main class="min-h-screen pt-32 px-6 md:px-12 bg-secondary text-primary">
+        <div class="max-w-4xl mx-auto">
+
+            {/* Breadcrumb */}
+            <nav class="mb-12" aria-label="Breadcrumb">
+                <ol class="flex gap-2 font-mono text-xs uppercase tracking-widest text-gray-500">
+                    <li><a href="/" class="hover:text-black transition-colors interactive">Strona główna</a></li>
+                    <li>/</li>
+                    <li class="text-black">Polityka prywatności</li>
+                </ol>
+            </nav>
+
+            {/* H1 + Lead */}
+            <section class="mb-24">
+                <h1 class="font-display text-3xl md:text-5xl font-bold tracking-tighter mb-8 leading-[0.95]">
+                    Polityka prywatności
+                </h1>
+                <p class="font-mono text-xs uppercase tracking-widest text-gray-500">
+                    Ostatnia aktualizacja: {lastUpdated}
+                </p>
+            </section>
+
+            <section class="mb-24 space-y-12">
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">1. Informacje ogólne</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>
+                            Niniejsza Polityka Prywatności określa zasady przetwarzania danych osobowych użytkowników strony internetowej www.wojciechsmolarek.pl (dalej jako „Strona"). Właścicielem Strony jest Wojciech Smolarek, osoba fizyczna świadcząca usługi na podstawie umowy cywilnoprawnej i rozliczająca się za pośrednictwem platformy Useme.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">2. Jakie dane osobowe zbieramy</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>Na Stronie mogą być zbierane następujące dane osobowe:</p>
+                        <ul class="space-y-2 pl-6 list-disc">
+                            <li>Imię i nazwisko</li>
+                            <li>Adres e-mail</li>
+                            <li>Numer telefonu (jeśli zostanie podany)</li>
+                            <li>Inne dane, które użytkownik zdecyduje się przekazać za pośrednictwem formularzy kontaktowych</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">3. Cele przetwarzania danych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>Dane osobowe użytkowników są przetwarzane w następujących celach:</p>
+                        <ul class="space-y-2 pl-6 list-disc">
+                            <li>Odpowiedzi na zapytania przesłane za pośrednictwem formularzy kontaktowych</li>
+                            <li>Realizacji usług oferowanych przez właściciela Strony</li>
+                            <li>Prowadzenia komunikacji z użytkownikami</li>
+                            <li>Wypełnienia obowiązków prawnych ciążących na właścicielu Strony</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">4. Podstawa prawna przetwarzania danych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>Przetwarzanie danych osobowych odbywa się na podstawie:</p>
+                        <ul class="space-y-2 pl-6 list-disc">
+                            <li>Zgody użytkownika (art. 6 ust. 1 lit. a RODO)</li>
+                            <li>Wykonania umowy (art. 6 ust. 1 lit. b RODO)</li>
+                            <li>Obowiązków prawnych (art. 6 ust. 1 lit. c RODO)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">5. Odbiorcy danych osobowych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>Dane osobowe użytkowników mogą być udostępniane następującym odbiorcom:</p>
+                        <ul class="space-y-2 pl-6 list-disc">
+                            <li>Podmiotom świadczącym usługi IT, w tym hostingowe</li>
+                            <li>Platformie Useme w celu wystawienia faktur oraz realizacji płatności</li>
+                            <li>Organom ścigania lub innym instytucjom, jeśli będzie to wymagane przez prawo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">6. Przechowywanie danych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>
+                            Dane osobowe będą przechowywane przez okres niezbędny do realizacji celów, dla których zostały zebrane, a po tym czasie — przez okres wymagany przepisami prawa.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">7. Prawa użytkowników</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>Użytkownicy mają prawo do:</p>
+                        <ul class="space-y-2 pl-6 list-disc">
+                            <li>Dostępu do swoich danych osobowych</li>
+                            <li>Sprostowania danych, jeśli są one nieprawidłowe lub niekompletne</li>
+                            <li>Usunięcia danych („prawo do bycia zapomnianym")</li>
+                            <li>Ograniczenia przetwarzania danych</li>
+                            <li>Przenoszenia danych do innego administratora</li>
+                            <li>Wniesienia sprzeciwu wobec przetwarzania danych osobowych</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">8. Bezpieczeństwo danych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>
+                            Właściciel Strony stosuje odpowiednie środki techniczne i organizacyjne w celu zapewnienia bezpieczeństwa danych osobowych oraz ochrony ich przed nieuprawnionym dostępem, utratą czy zniszczeniem.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">9. Zmiany w Polityce Prywatności</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>
+                            Właściciel Strony zastrzega sobie prawo do wprowadzania zmian w niniejszej Polityce Prywatności. Zmiany będą publikowane na tej stronie, a ich datę ostatniej aktualizacji można znaleźć na początku dokumentu.
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">10. Kontakt</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <p>
+                            W przypadku pytań dotyczących Polityki Prywatności lub przetwarzania danych osobowych prosimy o kontakt pod adresem e-mail: <a href="mailto:kontakt@wojciechsmolarek.pl" class="underline hover:text-black transition-colors interactive">kontakt@wojciechsmolarek.pl</a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</MainLayout>

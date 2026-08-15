@@ -1,4 +1,47 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "wojciechsmolarek.pl" }],
+      "destination": "https://www.wojciechsmolarek.pl/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/konsultacje-seo",
+      "destination": "/audyt-techniczny-seo",
+      "permanent": true
+    },
+    {
+      "source": "/pozycjonowanie",
+      "destination": "/audyt-techniczny-seo",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/photos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/projects",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/zrealizowane-projekty",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }

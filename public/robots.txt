@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wojciechsmolarek.pl/sitemap-index.xml
+Sitemap: https://www.wojciechsmolarek.pl/sitemap-index.xml

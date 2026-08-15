@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://wojciechsmolarek.pl',
+  site: 'https://www.wojciechsmolarek.pl',
   integrations: [
     react(),
     sitemap(),

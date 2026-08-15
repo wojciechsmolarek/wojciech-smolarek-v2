@@ -1,0 +1,146 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Strona główna",
+            item: "https://www.wojciechsmolarek.pl/",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Regulamin",
+            item: "https://www.wojciechsmolarek.pl/regulamin",
+        },
+    ],
+};
+
+const effectiveDate = "20.12.2024";
+---
+
+<MainLayout
+    title="Regulamin strony | Wojciech Smolarek"
+    description="Regulamin strony www.wojciechsmolarek.pl — zasady korzystania ze strony, zakres działalności, prawa i obowiązki użytkowników."
+>
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(breadcrumbJsonLd)}
+    />
+
+    <main class="min-h-screen pt-32 px-6 md:px-12 bg-secondary text-primary">
+        <div class="max-w-4xl mx-auto">
+
+            {/* Breadcrumb */}
+            <nav class="mb-12" aria-label="Breadcrumb">
+                <ol class="flex gap-2 font-mono text-xs uppercase tracking-widest text-gray-500">
+                    <li><a href="/" class="hover:text-black transition-colors interactive">Strona główna</a></li>
+                    <li>/</li>
+                    <li class="text-black">Regulamin</li>
+                </ol>
+            </nav>
+
+            {/* H1 + Lead */}
+            <section class="mb-24">
+                <h1 class="font-display text-3xl md:text-5xl font-bold tracking-tighter mb-8 leading-[0.95]">
+                    Regulamin strony
+                </h1>
+                <p class="font-mono text-xs uppercase tracking-widest text-gray-500">
+                    Wchodzi w życie z dniem {effectiveDate}
+                </p>
+            </section>
+
+            <section class="mb-24 space-y-12">
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Postanowienia ogólne</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Niniejszy regulamin określa zasady korzystania ze strony internetowej dostępnej pod adresem www.wojciechsmolarek.pl.</li>
+                            <li>Właścicielem strony jest Wojciech Smolarek, osoba fizyczna świadcząca usługi na podstawie umowy cywilnoprawnej i rozliczająca się za pośrednictwem platformy Useme.</li>
+                            <li>Kontakt z właścicielem strony możliwy jest poprzez adres e-mail: <a href="mailto:kontakt@wojciechsmolarek.pl" class="underline hover:text-black transition-colors interactive">kontakt@wojciechsmolarek.pl</a>.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Zakres działalności</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Strona internetowa ma charakter informacyjny i prezentuje ofertę usług świadczonych przez Wojciecha Smolarka, takich jak konsultacje SEO, pozycjonowanie, audyty techniczne SEO, projektowanie stron internetowych, marketing internetowy.</li>
+                            <li>Usługi są realizowane na podstawie indywidualnych zleceń i rozliczane za pomocą platformy Useme, która wystawia faktury VAT w imieniu właściciela strony.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Prawa i obowiązki użytkowników</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Użytkownicy strony zobowiązani są do korzystania z niej w sposób zgodny z prawem, dobrymi obyczajami oraz postanowieniami niniejszego regulaminu.</li>
+                            <li>Zabrania się dostarczania treści o charakterze bezprawnym za pośrednictwem formularzy kontaktowych lub innych narzędzi dostępnych na stronie.</li>
+                            <li>Użytkownicy mogą kontaktować się z właścicielem strony w celu uzyskania oferty lub omówienia szczegółów współpracy.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Zasady współpracy</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Wszelkie zlecenia realizowane są na podstawie indywidualnych ustaleń między klientem a właścicielem strony.</li>
+                            <li>Rozliczenia dokonywane są za pośrednictwem platformy Useme, która wystawia fakturę VAT dla klienta oraz odprowadza wszelkie należne podatki.</li>
+                            <li>Szczegółowe warunki realizacji usług oraz przekazania praw autorskich (jeśli dotyczy) określane są w umowie zawieranej przez platformę Useme.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Ochrona danych osobowych</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Właściciel strony przetwarza dane osobowe użytkowników zgodnie z obowiązującymi przepisami prawa, w tym Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO).</li>
+                            <li>Szczegółowe informacje dotyczące przetwarzania danych osobowych znajdują się w <a href="/polityka-prywatnosci" class="underline hover:text-black transition-colors interactive">Polityce Prywatności</a> dostępnej na stronie.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Prawa własności intelektualnej</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Wszelkie materiały zamieszczone na stronie są chronione prawami autorskimi i należą do Wojciecha Smolarka lub zostały wykorzystane za zgodą uprawnionych podmiotów.</li>
+                            <li>Kopiowanie, rozpowszechnianie lub wykorzystywanie treści ze strony bez zgody właściciela jest zabronione.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Odpowiedzialność</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Właściciel strony dokłada wszelkich starań, aby treści zamieszczone na stronie były aktualne i rzetelne, ale nie ponosi odpowiedzialności za ich wykorzystanie przez użytkowników.</li>
+                            <li>Właściciel nie odpowiada za przerwy w działaniu strony wynikające z przyczyn technicznych lub niezależnych od niego.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display text-xl md:text-2xl font-bold mb-4">Postanowienia końcowe</h2>
+                    <div class="text-base md:text-lg leading-relaxed text-gray-700 space-y-4">
+                        <ol class="space-y-2 pl-6 list-decimal">
+                            <li>Regulamin może być zmieniany przez właściciela strony w dowolnym czasie, a jego zmieniona wersja będzie publikowana na stronie internetowej.</li>
+                            <li>Korzystanie ze strony po wprowadzeniu zmian oznacza akceptację nowego regulaminu.</li>
+                            <li>Regulamin wchodzi w życie z dniem {effectiveDate}.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</MainLayout>
