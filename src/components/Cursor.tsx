@@ -12,6 +12,7 @@ const Cursor = () => {
             return;
         }
 
+        document.body.classList.add('custom-cursor');
         setIsMounted(true);
 
         const updatePosition = (e: MouseEvent) => {

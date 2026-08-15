@@ -6,11 +6,11 @@ interface NavbarProps {
 
 const Navbar = ({ currentPath = '/' }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const isScrolled = window.scrollY > 50;
+            document.documentElement.dataset.scrolled = String(isScrolled);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -25,6 +25,7 @@ const Navbar = ({ currentPath = '/' }: NavbarProps) => {
     // Navigation Items
     const menuItems = [
         { label: 'Start', path: '/' },
+        { label: 'Audyt techniczny', path: '/audyt-techniczny-seo' },
         { label: 'Kontakt', path: '/kontakt' },
     ];
 
@@ -70,7 +71,8 @@ const Navbar = ({ currentPath = '/' }: NavbarProps) => {
                         <a
                             key={item.label}
                             href={item.path}
-                            className="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter hover:text-gray-500 transition-colors interactive overflow-hidden group"
+                            aria-current={currentPath === item.path ? 'page' : undefined}
+                            className={`font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter hover:text-gray-500 transition-colors interactive overflow-hidden group ${currentPath === item.path ? 'text-gray-500' : ''}`}
                         >
                             <span className="inline-block transition-transform duration-500 translate-y-full group-hover:translate-y-0" style={{ transitionDelay: `${index * 50}ms` }}>
                                 {/* Reveal effect helper */}
@@ -81,7 +83,7 @@ const Navbar = ({ currentPath = '/' }: NavbarProps) => {
                 </div>
 
                 <div className="absolute bottom-12 text-center font-mono text-xs uppercase tracking-widest opacity-50">
-                    <p>Warszawa, PL</p>
+                    <p>Bydgoszcz, PL</p>
                     <p className="mt-2">© 2026 Wojciech Smolarek</p>
                 </div>
             </div>

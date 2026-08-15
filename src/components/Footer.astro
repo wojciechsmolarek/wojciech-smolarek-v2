@@ -15,13 +15,12 @@ import Icon from "./Icon.astro";
             <h2
                 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[0.95]"
             >
-                Zoptymalizuję<br />Twój Biznes
+                Sprawdźmy, co blokuje<br />Twój serwis
             </h2>
             <p
                 class="text-lg md:text-xl text-gray-700 max-w-2xl leading-relaxed mb-12"
             >
-                Zwiększ widoczność, popraw wydajność i zacznij generować więcej
-                ruchu organicznego.
+                Sprawdzam w logach, co Googlebot robi na Twoim serwisie — audyt techniczny, crawl budget, migracje. Jak trzeba, buduję też nowy serwis w Astro lub Next.js.
             </p>
 
             <!-- CTA Buttons -->
@@ -34,10 +33,10 @@ import Icon from "./Icon.astro";
                     <span>Napisz do mnie</span>
                 </a>
                 <a
-                    href="/kontakt"
+                    href="/audyt-techniczny-seo"
                     class="group inline-flex items-center justify-center gap-3 border-2 border-black px-8 py-4 rounded-full hover:bg-black hover:text-white transition-all font-medium interactive"
                 >
-                    <span>Umów audyt</span>
+                    <span>Audyt techniczny strony</span>
                     <Icon
                         name="arrow_forward"
                         class="w-5 h-5 group-hover:translate-x-1 transition-transform"
@@ -52,21 +51,20 @@ import Icon from "./Icon.astro";
         >
             <!-- Social Links -->
             <div class="flex gap-4">
-                {
-                    [
-                        { icon: "code", label: "GitHub" },
-                        { icon: "alternate_email", label: "Email" },
-                        { icon: "link", label: "LinkedIn" },
-                    ].map((item) => (
-                        <a
-                            href="#"
-                            aria-label={item.label}
-                            class="w-12 h-12 border border-black/20 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all interactive"
-                        >
-                            <Icon name={item.icon} class="w-5 h-5" />
-                        </a>
-                    ))
-                }
+                <a
+                    href="mailto:kontakt@wojciechsmolarek.pl"
+                    aria-label="Email"
+                    class="w-12 h-12 border border-black/20 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all interactive"
+                >
+                    <Icon name="alternate_email" class="w-5 h-5" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/wojciech-smolarek/"
+                    aria-label="LinkedIn"
+                    class="w-12 h-12 border border-black/20 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all interactive"
+                >
+                    <Icon name="link" class="w-5 h-5" />
+                </a>
             </div>
 
             <!-- Footer Info -->
@@ -74,7 +72,8 @@ import Icon from "./Icon.astro";
                 class="flex flex-col md:flex-row gap-6 md:gap-12 text-sm font-mono text-gray-600 uppercase tracking-tight"
             >
                 <p>© 2026 Wojciech Smolarek</p>
-                <p>Warszawa, PL</p>
+                <p>Bydgoszcz, PL</p>
+                <p>Współzałożyciel <a href="https://algorytm.studio/" class="hover:text-black transition-colors interactive">Studio Algorytm</a></p>
                 <p class="hidden md:block">
                     Czas: <span id="time" class="text-black font-semibold"
                         >--:--</span

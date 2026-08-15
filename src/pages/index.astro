@@ -14,108 +14,46 @@ const techStack: TechItem[] = [
 	{ name: "Schema.org", icon: "code" },
 	{ name: "GA4", icon: "analytics" },
 	{ name: "Screaming Frog", icon: "bug_report" },
+	{ name: "Wazuh", icon: "search" },
+	{ name: "Chrome DevTools", icon: "code" },
+	{ name: "Ahrefs", icon: "analytics" },
+	{ name: "Senuto", icon: "trending_up" },
+	{ name: "Semrush", icon: "analytics" },
+	{ name: "Majestic", icon: "link" },
+	{ name: "n8n", icon: "bolt" },
+	{ name: "Astro", icon: "bolt" },
+	{ name: "Next.js", icon: "code" },
 ];
 ---
 
 <MainLayout
-	title="Wojciech Smolarek | Technical SEO Specialist"
-	description="Ekspert Technical SEO. Optymalizacja wydajności (Core Web Vitals), audyty techniczne, strategia indeksowania i migracje serwisów. Zwiększ widoczność swojego biznesu."
+	title="Wojciech Smolarek — Technical SEO Specialist | Audyty, logi, migracje"
+	description="Sprawdzam w logach, co Googlebot naprawdę robi na Twoim serwisie. Audyt techniczny SEO, crawl budget, dane RUM i nadzór nad migracjami dużych stron."
 >
 	<main id="main-content">
 		<Hero />
 		<ServicesHighlight />
 
-		<!-- TrustedBy Section -->
+		<!-- Segments Strip -->
 		<section
-			class="py-24 px-6 md:px-12 bg-secondary border-b border-black/10"
-			aria-label="Zaufali mi"
+			class="py-16 px-6 md:px-12 bg-secondary border-b border-black/10"
+			aria-label="Segmenty"
 		>
 			<div class="max-w-7xl mx-auto">
-				<h2
-					class="font-mono text-xs uppercase tracking-widest mb-12 text-gray-600 border-b border-black/10 pb-4 inline-block"
-				>
-					Zaufali mi
-				</h2>
-				<div
-					class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-20 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500"
-				>
-					<div
-						class="flex items-center justify-center"
-						aria-label="TechData"
-					>
-						<span
-							class="font-display font-bold text-2xl tracking-tighter"
-						>
-							TECH<span class="font-light">DATA</span>
-						</span>
-					</div>
-					<div
-						class="flex items-center justify-center"
-						aria-label="Nexus"
-					>
-						<span
-							class="font-mono font-bold text-xl tracking-widest border-2 border-current px-2 py-1"
-						>
-							NEXUS
-						</span>
-					</div>
-					<div
-						class="flex items-center justify-center"
-						aria-label="eCommerce Pro"
-					>
-						<span class="font-sans font-black text-2xl italic">
-							eCommerce<span
-								class="text-xs not-italic font-normal align-top"
-								>PRO</span
-							>
-						</span>
-					</div>
-					<div
-						class="flex items-center justify-center"
-						aria-label="Ventures"
-					>
-						<span
-							class="font-display font-bold text-xl uppercase tracking-[0.2em]"
-						>
-							Ventures
-						</span>
-					</div>
+				<div class="flex flex-wrap justify-center gap-8 md:gap-16 items-center">
+					<span class="font-mono text-sm uppercase tracking-widest text-gray-600">E-COMMERCE</span>
+					<span class="text-gray-400">·</span>
+					<span class="font-mono text-sm uppercase tracking-widest text-gray-600">MARKETPLACE</span>
+					<span class="text-gray-400">·</span>
+					<span class="font-mono text-sm uppercase tracking-widest text-gray-600">SERWISY CONTENTOWE</span>
+					<span class="text-gray-400">·</span>
+					<span class="font-mono text-sm uppercase tracking-widest text-gray-600">SPA / HEADLESS</span>
 				</div>
 			</div>
 		</section>
 
 		<StatsSection />
 		<Expertise />
-
-		<!-- Testimonial Section -->
-		<section class="py-32 px-6 md:px-12 bg-white border-y border-black/10">
-			<div
-				class="max-w-6xl mx-auto flex flex-col items-center text-center"
-			>
-				<Icon name="format_quote" class="w-16 h-16 opacity-10 mb-8" />
-				<p
-					class="font-display text-3xl md:text-5xl font-medium leading-tight mb-12 max-w-4xl"
-				>
-					"Współpraca z Wojciechem to punkt zwrotny dla naszego
-					e-commerce. Jego techniczna precyzja bezpośrednio przełożyła
-					się na <span class="bg-black text-white px-2 italic"
-						>200% wzrostu</span
-					> ruchu organicznego w zaledwie jeden kwartał."
-				</p>
-				<div class="text-left md:text-center">
-					<p
-						class="font-display font-bold text-xl uppercase tracking-wider"
-					>
-						Michał Krawczyk
-					</p>
-					<p
-						class="font-mono text-xs text-gray-500 uppercase tracking-widest mt-2"
-					>
-						CEO, TechRetail PL
-					</p>
-				</div>
-			</div>
-		</section>
 
 		<Philosophy />
 

@@ -5,35 +5,51 @@ import Icon from "./Icon.astro";
 const services: ServiceItem[] = [
     {
         id: "01",
-        title: "Audyt Techniczny",
-        impact: "Stabilny Wzrost",
+        title: "Audyt techniczny strony",
+        impact: "Wiesz wreszcie, co jest nie tak",
         impactIcon: "trending_up",
         description:
-            "Dogłębna analiza identyfikująca błędy indeksowania, blokady crawlowania (Crawl Budget) i wady architektury informacji, które hamują organiczny wzrost Twojego biznesu.",
+            "Wiesz, że coś nie gra, ale nikt w zespole nie potrafi powiedzieć, co konkretnie. Sprawdzam indeksację, architekturę, obsługę filtrów i paginacji, kanonikalizację i sitemapy — całą warstwę, która decyduje o tym, czy Google w ogóle dotrze do Twoich stron. Dostajesz listę zadań z priorytetami, a nie osiemdziesięciostronicowy PDF, którego nikt nie przeczyta. Zobacz, <a href=\"/audyt-techniczny-seo\" class=\"underline hover:text-black transition-colors\">co dokładnie obejmuje audyt techniczny strony internetowej</a>.",
     },
     {
         id: "02",
-        title: "Optymalizacja Speed",
-        impact: "Wyższa Konwersja",
-        impactIcon: "bolt",
+        title: "Analiza logów",
+        impact: "Twarde dane o Googlebocie",
+        impactIcon: "search",
         description:
-            "Poprawa wskaźników Core Web Vitals (LCP, FID, CLS). Zaawansowana minifikacja kodu, optymalizacja zasobów krytycznych i redukcja czasu odpowiedzi serwera (TTFB).",
+            "Narzędzia pokazują, co Googlebot mógłby zobaczyć. Logi pokazują, co zobaczył naprawdę. Sprawdzam, na których sekcjach robot spędza czas, ile budżetu zjadają parametry i przekierowania i czy szablony, które zarabiają, są w ogóle odwiedzane. Logi czytam codziennie, na produkcyjnym ruchu dużego e-commerce — to nie jest dla mnie ćwiczenie akademickie.",
     },
     {
         id: "03",
-        title: "Schema i Dane",
-        impact: "CTR i Rich Snippets",
-        impactIcon: "visibility",
+        title: "Crawl budget",
+        impact: "Szybsza indeksacja",
+        impactIcon: "bolt",
         description:
-            "Wdrażanie zaawansowanych danych strukturalnych (JSON-LD), pomagających robotom Google zrozumieć kontekst, relacje i encje w treści, co przekłada się na bogate wyniki wyszukiwania.",
+            "Masz trzysta tysięcy adresów, a Google indeksuje sto. Reszta czeka w kolejce albo nie doczeka nigdy. Wycinam duplikaty z filtrów i sortowań, prostuję łańcuchy przekierowań, porządkuję robots.txt i przebudowuję linkowanie wewnętrzne tak, żeby budżet trafiał tam, gdzie są przychody.",
     },
     {
         id: "04",
-        title: "Bezpieczna Migracja",
-        impact: "Ochrona Przychodów",
+        title: "Wydajność i RUM",
+        impact: "Realna szybkość, nie symulacja",
+        impactIcon: "speed",
+        description:
+            "Lighthouse świeci na zielono, a użytkownicy i tak czekają. Nic dziwnego — to laboratorium, nie Twój ruch. Pracuję na danych RUM i CrUX, czyli na tym, co widzą prawdziwi ludzie na prawdziwych łączach. TTFB, cache, krytyczna ścieżka renderowania, waga JavaScriptu. Core Web Vitals są tu wynikiem, nie celem samym w sobie.",
+    },
+    {
+        id: "05",
+        title: "Nadzór nad migracją",
+        impact: "Ruch zostaje na miejscu",
         impactIcon: "shield",
         description:
-            "Kompleksowe mapowanie przekierowań, strategia transferu autorytetu domeny i monitoring po-wdrożeniowy, gwarantujący zerową utratę ruchu i przychodów podczas rebrandingu.",
+            "Migracja to jeden dzień, po którym ruch albo zostaje, albo znika na kwartał. Prowadziłem migrację dużego sklepu e-commerce na Next.js, więc wiem, w którym miejscu to zwykle pęka. Audyt przedmigracyjny, mapowanie adresów, walidacja na stagingu, checklista cutovera i monitoring po wdrożeniu — żebyś w poniedziałek rano nie musiał nerwowo odświeżać Search Console.",
+    },
+    {
+        id: "06",
+        title: "Renderowanie / JS SEO",
+        impact: "Google widzi Twoją treść",
+        impactIcon: "visibility",
+        description:
+            "Otwierasz stronę i widzisz treść. Googlebot otwiera i widzi pustą ramkę. Sprawdzam, co robot faktycznie renderuje, ile kosztuje go hydratacja i czy to, co najważniejsze, trafia do HTML-a przed wykonaniem JavaScriptu. Potem mówię, które szablony powinny iść przez SSR, a które spokojnie zostaną statyczne.",
     },
 ];
 ---
@@ -46,17 +62,17 @@ const services: ServiceItem[] = [
             <h2
                 class="font-display text-5xl md:text-7xl font-bold uppercase tracking-tighter"
             >
-                Ekspertyza
+                Audyt techniczny SEO
             </h2>
             <p class="font-mono text-xs mt-4 md:mt-0 uppercase tracking-widest">
-                [ Wybrane Kompetencje ]
+                [ Ekspertyza — zakres techniczny ]
             </p>
         </div>
 
         <div class="space-y-0">
             {
-                services.map((item) => (
-                    <details class="group border-b border-black/20 cursor-pointer interactive">
+                services.map((item, index) => (
+                    <details class="group border-b border-black/20 cursor-pointer interactive" open={index === 0}>
                         <summary class="py-12 flex justify-between items-center transition-colors pr-4">
                             <div class="flex flex-col md:flex-row md:items-center gap-4 relative z-10 w-full">
                                 {/* Title Group */}
@@ -84,13 +100,15 @@ const services: ServiceItem[] = [
                             />
                         </summary>
                         <div class="pb-12 md:pl-[3.5rem] max-w-2xl">
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed font-sans border-l-2 border-black pl-6">
-                                {item.description}
-                            </p>
+                            <p class="text-base md:text-lg text-gray-700 leading-relaxed font-sans border-l-2 border-black pl-6" set:html={item.description} />
                         </div>
                     </details>
                 ))
             }
         </div>
+
+        <p class="font-mono text-xs uppercase tracking-widest mt-12 text-gray-600">
+            Buduję też nowe serwisy w Astro i Next.js — z wydajnością wpisaną w architekturę, nie doklejoną na końcu.
+        </p>
     </div>
 </section>

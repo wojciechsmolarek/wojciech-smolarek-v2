@@ -4,7 +4,7 @@ import Icon from "./Icon.astro";
 ---
 
 <header
-    class="relative min-h-screen flex flex-col justify-center overflow-hidden px-6 md:px-12 lg:pl-32 pt-20"
+    class="relative min-h-screen flex flex-col justify-center overflow-hidden px-6 md:px-12 lg:pl-32 pt-20 pb-32"
 >
     {/* Background Image/Portrait */}
     <div
@@ -14,7 +14,7 @@ import Icon from "./Icon.astro";
             <source srcset="/wojciech-hero.avif" type="image/avif" />
             <source srcset="/wojciech-hero.webp" type="image/webp" />
             <img
-                alt="Wojciech Smolarek - Technical SEO Specialist z Warszawy"
+                alt="Wojciech Smolarek - Technical SEO Specialist"
                 class="w-full h-full object-cover mix-blend-multiply brightness-110 contrast-100"
                 style={{
                     maskImage:
@@ -38,21 +38,26 @@ import Icon from "./Icon.astro";
         <div
             class="rotate-180 [writing-mode:vertical-rl] font-mono text-xs uppercase tracking-[0.3em] text-gray-600 mix-blend-difference"
         >
-            Specjalista Technical SEO <span class="my-4 inline-block">//</span> Data
-            Driven
+            Specjalista Technical SEO <span class="my-4 inline-block">//</span> Logi,
+            Crawl, Migracje
         </div>
     </div>
 
     {/* Main Headline */}
     <div
-        class="relative z-10 pointer-events-none select-none mix-blend-normal max-w-full md:max-w-[50vw] lg:max-w-[65vw]"
+        class="relative z-10 max-w-full md:max-w-[50vw] lg:max-w-[65vw]"
     >
-        <h1
-            class="text-[clamp(3rem,10vw,10rem)] font-display font-bold leading-[0.9] tracking-tighter text-primary drop-shadow-sm"
+        <p
+            aria-hidden="true"
+            class="text-[clamp(3rem,10vw,10rem)] font-display font-bold leading-[0.9] tracking-tighter text-primary drop-shadow-sm pointer-events-none select-none"
         >
             WOJCIECH<br />SMOLAREK
+        </p>
+        <h1
+            class="mt-6 font-display text-lg md:text-2xl font-semibold tracking-tight text-primary max-w-xl"
+        >
+            Technical SEO Specialist — audyty techniczne SEO, analiza logów i migracje dużych serwisów
         </h1>
-        <p class="sr-only">Technical SEO Specialist - Warszawa</p>
     </div>
 
     {/* Intro Text */}
@@ -62,9 +67,7 @@ import Icon from "./Icon.astro";
         <p
             class="font-sans text-sm md:text-base leading-relaxed tracking-wide text-primary font-medium"
         >
-            Optymalizuję to, co niewidoczne. Przebudowuję kręgosłup sieci, aby
-            zwiększyć widoczność, szybkość i indeksowalność. Tam, gdzie precyzja
-            techniczna spotyka się ze strategią cyfrową.
+            Twój serwis działa, a mimo to Google go nie widzi? Wchodzę w logi i sprawdzam, co Googlebot naprawdę robi — na których adresach traci czas, a które omija. Potem mówię wprost, co jest zepsute i w jakiej kolejności to naprawić.
         </p>
         <div class="mt-8 flex items-center gap-4">
             <span class="h-[1px] w-12 bg-black"></span>

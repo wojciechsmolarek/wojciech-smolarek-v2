@@ -3,22 +3,22 @@ import type { StatItem } from "../types";
 
 const stats: StatItem[] = [
     {
-        value: "-7%",
-        label: "Spadek Konwersji",
+        value: "Logi",
+        label: "Jedyne źródło prawdy",
         description:
-            "Każda sekunda opóźnienia w ładowaniu strony to bezpośrednia strata przychodu.",
+            "Jedyne miejsce, w którym zobaczysz, co Googlebot naprawdę odwiedził. Reszta to domysły.",
     },
     {
-        value: "80%",
-        label: "Błędy Architektury",
+        value: "Budżet",
+        label: "Crawl budget przy skali",
         description:
-            "Większość problemów z indeksacją wynika ze źle zaplanowanej struktury technicznej.",
+            "Przy dużej strukturze nie liczy się, ile masz stron. Liczy się, ile Google zdąży odwiedzić.",
     },
     {
-        value: "3x",
-        label: "Zwrot z Inwestycji",
+        value: "Migracja",
+        label: "Jedna szansa",
         description:
-            "Techniczne SEO to jednorazowa inwestycja, która procentuje latami bez kosztów za kliknięcie.",
+            "Zdarza się raz i nie da się jej cofnąć. Albo jest zaplanowana, albo kosztuje.",
     },
 ];
 ---
@@ -44,7 +44,7 @@ const stats: StatItem[] = [
             {
                 stats.map((stat) => (
                     <div class="group interactive">
-                        <div class="text-5xl md:text-7xl font-display font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+                        <div class="text-5xl md:text-7xl font-display font-bold mb-4 bg-clip-text text-transparent bg-linear-to-r from-white to-gray-500">
                             {stat.value}
                         </div>
                         <div class="h-px w-12 bg-white/30 mb-6 group-hover:w-full transition-all duration-500" />

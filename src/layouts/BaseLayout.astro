@@ -8,7 +8,9 @@ interface Props {
 }
 
 const { title, description, ogImage = "/wojciech-hero.png" } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Normalize pathname: strip ".html" (from build.format: 'file') and collapse "/index" to "/" so canonical/OG URLs are clean: /audyt-techniczny-seo (not .html), / (not /index)
+const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/^\/index$/, "/");
+const canonicalURL = new URL(pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -43,26 +45,54 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <!-- Structured Data -->
         <script
             type="application/ld+json"
+            is:inline
             set:html={JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Person",
                 name: "Wojciech Smolarek",
                 jobTitle: "Technical SEO Specialist",
                 description: description,
-                url: canonicalURL.toString(),
+                url: "https://wojciechsmolarek.pl/",
                 image: new URL(ogImage, Astro.site).toString(),
-                address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Warszawa",
-                    addressCountry: "PL",
-                },
                 knowsAbout: [
                     "Technical SEO",
+                    "Audyt techniczny SEO",
+                    "Analiza logów serwera",
+                    "Crawl budget",
+                    "Indeksacja",
+                    "JavaScript SEO",
+                    "Renderowanie",
                     "Core Web Vitals",
-                    "Schema Markup",
-                    "Site Migrations",
-                    "Crawl Budget Optimization",
+                    "Real User Monitoring",
+                    "Migracje serwisów",
+                    "Dane strukturalne",
+                    "Google Discover",
+                    "Astro",
+                    "Next.js",
+                    "Web Performance",
                 ],
+                sameAs: [
+                    "https://www.linkedin.com/in/wojciech-smolarek/",
+                    "https://algorytm.studio/ekspert/wojciech-smolarek",
+                ],
+                alumniOf: [
+                    { "@type": "CollegeOrUniversity", name: "Politechnika Poznańska" },
+                    { "@type": "CollegeOrUniversity", name: "Uniwersytet WSB Merito" },
+                ],
+                email: "kontakt@wojciechsmolarek.pl",
+                telephone: "+48697225901",
+                memberOf: {
+                    "@type": "Organization",
+                    name: "Studio Algorytm",
+                    url: "https://algorytm.studio/",
+                    foundingDate: "2019",
+                    address: {
+                        "@type": "PostalAddress",
+                        streetAddress: "ul. Sępia 4",
+                        addressLocality: "Bydgoszcz",
+                        addressCountry: "PL",
+                    },
+                },
             })}
         />
 

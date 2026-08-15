@@ -1,0 +1,435 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const faqItems = [
+    {
+        q: "Ile trwa audyt techniczny strony internetowej?",
+        a: "To zależy od skali serwisu i dostępności danych. Przy serwisie rzędu kilkudziesięciu tysięcy URL-i, z dostępnymi logami i Search Console, audyt zajmuje zazwyczaj od dwóch do czterech tygodni. Większe struktury wymagają więcej czasu na analizę logów i mapowanie problemów. Dokładny termin podaję po wstępnej rozmowie, na której ustalamy zakres.",
+    },
+    {
+        q: "Czym różni się audyt techniczny SEO od pełnego audytu SEO?",
+        a: "Audyt techniczny SEO skupia się na warstwie, która decyduje o tym, czy Google w ogóle dotrze do Twoich stron i czy potrafi je poprawnie zrenderować. Nie zajmuję się tu contentem, link buildingiem ani strategią słów kluczowych. Pełny audyt SEO obejmuje też te obszary. Jeśli potrzebujesz pełnego audytu, mogę wskazać, kto to zrobi dobrze — ale sam wykonuję część techniczną, bo to jest moja specjalizacja.",
+    },
+    {
+        q: "Jakich dostępów potrzebujesz?",
+        a: "Do pełnego audytu technicznego potrzebuję: dostępu do logów serwera (lub eksportu z narzędzia takiego jak Wazuh), Google Search Console, analityki (GA4 lub innej) oraz dostępu do środowiska staging, jeśli pracujemy nad migracją. Im więcej danych mam na wejściu, tym precyzyjniejsza diagnoza. Brak logów nie dyskwalifikuje projektu, ale ogranicza głębokość analizy crawl budgetu.",
+    },
+    {
+        q: "Czy pomagasz przy wdrożeniu, czy tylko oddajesz raport?",
+        a: "Nie zostawiam Cię z PDF-em. Po audycie dostajesz arkusz zadań z priorytetyzacją wg wpływu i nakładu wdrożenia, a potem omawiamy go z Twoim zespołem technicznym na sesji live. Przy wdrożeniu jestem dostępny na pytania — Twój dev ma mnie jako wsparcie, nie jako kolejny raport do interpretacji. Wytyczne piszę w języku, który zespół deweloperski rozumie bez tłumaczenia.",
+    },
+    {
+        q: "Czy analiza logów jest konieczna przy każdym audycie?",
+        a: "Nie przy każdym, ale przy serwisach powyżej kilkudziesięciu tysięcy URL-i jest kluczowa. Bez logów nie powiesz, co Googlebot faktycznie robi na stronie — widzisz tylko to, co narzędzie crawlowe uważa, że robot mógłby zobaczyć. Przy mniejszych serwisach analiza logów bywa przydatna, ale nie jest niezbędna. Rekomenduję ją zawsze, gdy mamy do czynienia z crawl budget problemem.",
+    },
+    {
+        q: "Jak często powtarzać audyt techniczny strony?",
+        a: "Zależy od tempa zmian na serwisie. Przy serwisach, które regularnie wdrażają nowe funkcje, zmieniają architekturę lub dodają nowe sekcje, audyt techniczny strony warto robić raz na kwartał. Przy stabilnych serwisach bez większych zmian raz na pół roku do roku wystarczy. Po migracji lub rebrandingu audyt robimy zawsze — bez względu na to, kiedy był poprzedni.",
+    },
+];
+
+const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Strona główna",
+            item: "https://wojciechsmolarek.pl/",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Audyt techniczny SEO",
+            item: "https://wojciechsmolarek.pl/audyt-techniczny-seo",
+        },
+    ],
+};
+
+const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Audyt techniczny SEO",
+    serviceType: "Audyt techniczny strony internetowej",
+    provider: {
+        "@type": "Person",
+        name: "Wojciech Smolarek",
+        url: "https://wojciechsmolarek.pl/",
+    },
+    areaServed: { "@type": "Country", name: "Polska" },
+    url: "https://wojciechsmolarek.pl/audyt-techniczny-seo",
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Zakres audytu",
+        itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analiza logów serwera" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Optymalizacja crawl budgetu" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Audyt renderowania i JavaScript SEO" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Analiza wydajności i danych RUM" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nadzór nad migracją serwisu" } },
+        ],
+    },
+};
+
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: item.a,
+        },
+    })),
+};
+---
+
+<MainLayout
+    title="Audyt techniczny SEO — sprawdzę, co blokuje Twój serwis | Wojciech Smolarek"
+    description="Audyt techniczny strony internetowej dla dużych serwisów: analiza logów, crawl budget, dane RUM, renderowanie i indeksacja. Dostajesz listę zadań, nie PDF do szuflady."
+>
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(serviceJsonLd)}
+    />
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(faqJsonLd)}
+    />
+    <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(breadcrumbJsonLd)}
+    />
+
+    <main class="min-h-screen pt-32 px-6 md:px-12 bg-secondary text-primary">
+        <div class="max-w-4xl mx-auto">
+
+            {/* Breadcrumb */}
+            <nav class="mb-12" aria-label="Breadcrumb">
+                <ol class="flex gap-2 font-mono text-xs uppercase tracking-widest text-gray-500">
+                    <li><a href="/" class="hover:text-black transition-colors interactive">Strona główna</a></li>
+                    <li>/</li>
+                    <li class="text-black">Audyt techniczny SEO</li>
+                </ol>
+            </nav>
+
+            {/* H1 + Lead */}
+            <section class="mb-24">
+                <h1 class="font-display text-3xl md:text-5xl font-bold tracking-tighter mb-8 leading-[0.95]">
+                    Audyt techniczny SEO — dowiesz się wreszcie, co blokuje Twój serwis
+                </h1>
+                <p class="text-lg md:text-xl leading-relaxed text-gray-700 max-w-3xl">
+                    Publikujesz, optymalizujesz, a widoczność stoi. Crawler pokazuje, co Googlebot mógłby zobaczyć — ale to logi serwera pokazują, co zobaczył naprawdę. Audyt techniczny SEO, który przeprowadzam, kończy się listą zadań dla Twojego zespołu, a nie osiemdziesięciostronicowym PDF-em do szuflady.
+                </p>
+            </section>
+
+            {/* Znasz to? */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">Znasz to?</h2>
+                <ul class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Search Console pokazuje tysiące „wykryto, obecnie nie zindeksowano" i nikt w zespole nie wie dlaczego.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Nowe kategorie wchodzą do indeksu po trzech tygodniach albo wcale, mimo że sitemapa jest wysłana.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Po migracji ruch spadł i nie wrócił, a raporty mówią, że „wszystko przekierowane".</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Lighthouse świeci na zielono, a klienci piszą, że strona muli na telefonie.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Dev pyta, co ma zrobić, a Ty masz raport z narzędzia zamiast odpowiedzi.</span>
+                    </li>
+                </ul>
+            </section>
+
+            {/* Czym jest audyt */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">
+                    Czym jest audyt techniczny strony internetowej
+                </h2>
+                <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <p>
+                        Audyt techniczny strony internetowej to diagnoza warstwy, która decyduje o tym, czy Google w ogóle dotrze do Twoich stron, czy je poprawnie zrenderuje i czy zaindeksuje to, co powinno. To nie jest audyt contentu, link building ani strategia słów kluczowych — to są osobne dyscypliny. Tu sprawdzamy infrastrukturę.
+                    </p>
+                    <p>
+                        Granica jest prosta: jeśli problem da się naprawić zmianą kodu, konfiguracji serwera albo architektury URL — to jest warstwa techniczna. Jeśli wymaga napisania lepszej treści albo zdobycia linków — to nie jest ten audyt. Czasem problemy przenikają się, i wtedy mówię wprost: to jest techniczne, a to potrzebuje contentu.
+                    </p>
+                    <p>
+                        Audyt techniczny strony internetowej ma sens tylko wtedy, gdy kończy się konkretnymi zadaniami. Nie interesuje Cię, że „indeksacja wymaga poprawy" — interesuje Cię, który szablon ma zły kanonikal, ile adresów z filtrów Googlebot traci codziennie i co zmienić w robots.txt, żeby przestał.
+                    </p>
+                </div>
+            </section>
+
+            {/* Dla jakich serwisów */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">
+                    Dla jakich serwisów to robię
+                </h2>
+                <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <p>
+                        Pracuję z serwisami, w których liczba adresów idzie w dziesiątki tysięcy w górę. E-commerce z rozbudowaną faceted navigation, portale ogłoszeniowe, marketplace'y, serwisy contentowe o dużej skali, aplikacje SPA i headless na React czy Vue. To są serwisy, w których crawl budget przestaje być teorią, a staje się problemem, który widać w logach.
+                    </p>
+                    <p>
+                        Przy mniejszych stronach — kilkaset URL-i, prosta struktura — audyt techniczny SEO też ma sens, ale zakres jest inny. Mniej logów, więcej skupienia na renderowaniu, danych strukturalnych i podstawowej indeksacji.
+                    </p>
+                    <p>
+                        Kiedy audyt Ci nie pomoże: jeśli Twój problem to treść, a nie technika. Jeśli strona ma sto adresów, ładuje się w sekundę, jest poprawnie zaindeksowana, a ruch nie rośnie — to nie jest problem techniczny. Mówię to uczciwie, zanim zaczniesz płacić.
+                    </p>
+                </div>
+            </section>
+
+            {/* Co sprawdzam */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-12">Co sprawdzam</h2>
+
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Analiza logów serwera</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Wchodzę w logi serwera i sprawdzam, co Googlebot naprawdę robi na Twoim serwisie. Na wejściu biorę surowe logi albo eksport z systemu takiego jak Wazuh, na którym pracuję codziennie. Typowy błąd, który wychodzi: robot spędza 60% czasu na adresach z parametrami filtrów, które nigdy nie wejdą do indeksu. Po naprawie — budżet przechodzi na szablony, które zarabiają. Kody odpowiedzi 200, 301, 404, 5xx — wszystko tam jest, w czarno na białym.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Crawl budget i efektywność crawlowania</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Analizuję, ile z Twojego crawl budget Google zużywa na adresy, które nie powinny być crawlowane. Parametry URL, łańcuchy przekierowań, duplikaty z sortowań, paginacja generująca setki wariantów tego samego contentu. Na wejściu: raport z Search Console i logi. Typowy błąd: robots.txt nie blokuje tego, co powinien, a kanonikalizacja nie działa tam, gdzie powinna. Po naprawie crawl efficiency rośnie — robot odwiedza więcej unikalnych adresów w tym samym czasie.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Indeksacja przy dużej strukturze</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Sprawdzam, co jest w indeksie, co jest z niego wyrzucone i dlaczego. Sitemapa XML, noindex, kanonikalizacja, hreflang przy wersjach językowych. Typowy błąd: sitemapa zawiera adresy oznaczone noindex — Googlebot traci czas na crawlowanie stron, które sam ma zakazane indeksować. Albo kanonikal wskazuje na adres, który sam jest przekierowaniem. Po naprawie widać to w Search Console — mniej „wykryto, obecnie nie zindeksowano", więcej stron w indeksie.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Renderowanie i JavaScript SEO</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Sprawdzam, co Googlebot faktycznie renderuje na Twoich szablonach. Jeśli serwis jest na React, Vue albo innym frameworku, hydratacja może kosztować robota więcej, niż zakładasz. Na wejściu: testy z użyciem narzędzi Google (URL Inspection, Mobile-Friendly Test) i weryfikacja HTML, który robot dostaje. Typowy błąd: treść główna renderuje się dopiero po wykonaniu JavaScriptu — robot widzi pustą ramkę. Po naprawie: to, co najważniejsze, trafia do HTML-a przed JS. SSR tam, gdzie potrzebne, statyczne tam, gdzie wystarczy.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Wydajność: laboratorium kontra dane RUM</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Lighthouse to symulacja. RUM i CrUX to prawda o Twoich użytkownikach. Pracuję na danych RUM, czyli na tym, co widzą realni ludzie na realnych łączach. Sprawdzam TTFB, strategię cache'owania, krytyczną ścieżkę renderowania, wagę bundle'i JavaScript, konfigurację CDN. Typowy błąd: LCP na zielono w labie, a w CrUX czerwono — bo realny użytkownik na 4G czeka trzy sekundy na pierwszy bajt. Core Web Vitals — LCP, INP, CLS — są tu wynikiem naprawy, nie celem samym w sobie.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Architektura informacji i linkowanie wewnętrzne</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Sprawdzam, jak linkowanie wewnętrzne prowadzi robota przez serwis. Przy dużej strukturze to decyduje o tym, czy Googlebot dotrze do głębokich kategorii, czy zostanie na powierzchni. Typowy błąd: ważne szablony są cztery kliknięcia od strony głównej, a jednocześnie menu generuje tysiące linków do filtrów, które nie mają wartości indeksacyjnej. Po naprawie robota prowadzisz świadomie — budżet idzie tam, gdzie są przychody.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="font-display text-xl md:text-2xl font-semibold mb-4">Dane strukturalne JSON-LD</h3>
+                        <p class="text-lg leading-relaxed text-gray-700">
+                            Sprawdzam, czy dane strukturalne JSON-LD są poprawne, kompletne i zgodne z tym, co jest na stronie. Typowy błąd: schema.org markup jest, ale opisuje encje, których nie ma w widocznym HTML — Google to ignoruje. Albo brakuje hreflang przy wersjach językowych. Po naprawie Google lepiej rozumie kontekst Twoich stron, a w wynikach mogą pojawić się rich snippets.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Wyobraź sobie, że… */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">Wyobraź sobie, że…</h2>
+                <ul class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Wiesz, które szablony Googlebot odwiedza codziennie, a które raz na kwartał — i dlaczego.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Nowe produkty wchodzą do indeksu w dwa dni, nie w trzy tygodnie.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Twój dev ma listę zadań z priorytetami, a nie raport do interpretacji.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Przed migracją masz checklistę, a po niej wykres, który nie spada.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="text-black font-bold mt-1">—</span>
+                        <span>Przestajesz zgadywać i zaczynasz decydować na podstawie danych.</span>
+                    </li>
+                </ul>
+            </section>
+
+            {/* Jak to wygląda krok po kroku */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">
+                    Jak to wygląda krok po kroku
+                </h2>
+                <div class="space-y-8">
+                    <div class="border-l-2 border-black pl-6">
+                        <h3 class="font-display text-lg font-semibold mb-2">1. Wstępna rozmowa</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ustalamy zakres, skalę serwisu i główne bolączki. Mówisz, co się dzieje — ja pytam, czy masz logi, Search Console i analitykę. To wystarczy, żebym wiedział, czy audyt techniczny SEO ma sens przy Twoim problemie.
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-black pl-6">
+                        <h3 class="font-display text-lg font-semibold mb-2">2. Dostęp do danych</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Potrzebuję: dostępu do logów serwera, Google Search Console, analityki i środowiska staging, jeśli pracujemy nad migracją. Samo wymienienie tych wymagań jest sygnałem — jeśli ktoś obiecuje audyt techniczny bez logów, to nie jest pełny audyt.
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-black pl-6">
+                        <h3 class="font-display text-lg font-semibold mb-2">3. Analiza</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Crawlowanie serwisu, analiza logów, weryfikacja indeksacji, testy renderowania, dane RUM. To jest etap, na którym pracuję sam — Ty dostajesz wynik, nie proces.
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-black pl-6">
+                        <h3 class="font-display text-lg font-semibold mb-2">4. Raport i priorytetyzacja</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Dostajesz dokument z diagnozą i arkusz zadań z priorytetyzacją wg wpływu i nakładu wdrożenia. Nie musisz zgadywać, co zrobić najpierw — wiemy to od początku.
+                        </p>
+                    </div>
+                    <div class="border-l-2 border-black pl-6">
+                        <h3 class="font-display text-lg font-semibold mb-2">5. Omówienie i wsparcie wdrożenia</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Sesja live z Twoim zespołem technicznym. Wytyczne pisane pod zespół deweloperski — Twój dev wie, co zrobić w poniedziałek rano. Przy wdrożeniu jestem dostępny na pytania.
+                        </p>
+                    </div>
+                </div>
+                {/* TODO: ramy czasowe — do potwierdzenia przez właściciela */}
+            </section>
+
+            {/* Co dostajesz */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">Co dostajesz</h2>
+                <ul class="space-y-4 text-lg leading-relaxed text-gray-700">
+                    <li class="flex gap-4">
+                        <Icon name="arrow_forward" class="w-5 h-5 mt-1 flex-shrink-0" />
+                        <span>Dokument z diagnozą techniczną — co jest zepsute, gdzie i dlaczego.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <Icon name="arrow_forward" class="w-5 h-5 mt-1 flex-shrink-0" />
+                        <span>Arkusz zadań z priorytetyzacją wg wpływu na indeksację i nakładu wdrożenia.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <Icon name="arrow_forward" class="w-5 h-5 mt-1 flex-shrink-0" />
+                        <span>Wytyczne pisane pod zespół deweloperski — nie pod marketing. Język, który Twój dev rozumie bez tłumaczenia.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <Icon name="arrow_forward" class="w-5 h-5 mt-1 flex-shrink-0" />
+                        <span>Sesja omówienia z zespołem technicznym — na żywo, z możliwością pytań.</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <Icon name="arrow_forward" class="w-5 h-5 mt-1 flex-shrink-0" />
+                        <span>Wsparcie przy wdrożeniu — odpowiadam na pytania devów, weryfikuję poprawki.</span>
+                    </li>
+                </ul>
+            </section>
+
+            {/* Kto to sprawdzi */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">Kto to sprawdzi</h2>
+                <div class="space-y-4 text-lg leading-relaxed text-gray-700">
+                    <p>
+                        W technicznym SEO pracuję od 2018 roku. Codziennie czytam logi serwera na produkcyjnym ruchu dużego e-commerce — to nie jest dla mnie ćwiczenie akademickie. Prowadziłem nadzór SEO przy migracji sklepu na Next.js, więc wiem, w którym miejscu to zwykle pęka.
+                    </p>
+                    <p>
+                        Z wykształcenia jestem informatykiem — Politechnika Poznańska. To wyjaśnia, dlaczego rozmowa z Twoim zespołem deweloperskim działa bez tłumaczenia. Nie mówię „zróbcie to szybciej" — mówię, który endpoint traci 800 ms na TTFB i dlaczego.
+                    </p>
+                    <p>
+                        Współprowadzę <a href="https://algorytm.studio/" class="underline hover:text-black transition-colors interactive">Studio Algorytm</a> — kolektyw trzech specjalistów od SEO, web devu i UX. Jeśli wdrożenie wykracza poza to, co zrobisz własnym zespołem, mamy kim to pociągnąć.
+                    </p>
+                </div>
+            </section>
+
+            {/* Audyt a nadzór nad migracją */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">
+                    Audyt a nadzór nad migracją
+                </h2>
+                <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <p>
+                        Audyt techniczny SEO to diagnoza istniejącego stanu. Nadzór nad migracją to proces, który zaczyna się przed zmianą platformy i kończy po niej. To dwa różne zakresy, choć bazują na tej samej kompetencji.
+                    </p>
+                    <p>
+                        Pełny nadzór nad migracją potrzebny jest, gdy zmieniasz platformę, domenę albo architekturę URL. Obejmuje audyt przedmigracyjny, mapowanie adresów, walidację na stagingu, checklista cutovera i monitoring po wdrożeniu. Sam audyt techniczny wystarczy, gdy nie planujesz migracji, ale chcesz wiedzieć, co blokuje serwis tu i teraz.
+                    </p>
+                    <p>
+                        Jeśli stoisz przed migracją — powiedz mi o tym na wstępnej rozmowie. Zakres wygląda inaczej, i cena też.
+                    </p>
+                </div>
+            </section>
+
+            {/* Ile to kosztuje */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-8">
+                    Ile to kosztuje
+                </h2>
+                <div class="space-y-6 text-lg leading-relaxed text-gray-700">
+                    <p>
+                        Wycena zależy od liczby URL-i, platformy, dostępności logów i zakresu wsparcia przy wdrożeniu. Każdy serwis jest inny — nie ma jednej ceny za audyt techniczny strony internetowej.
+                    </p>
+                    {/* TODO: cena — do potwierdzenia przez właściciela */}
+                    <p>
+                        Po wstępnej rozmowie dostajesz konkretną wycenę z zakresem. Bez ukrytych kosztów i bez przedłużania.
+                    </p>
+                    <a
+                        href="/kontakt"
+                        class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full hover:bg-black/90 transition-all font-medium interactive group mt-4"
+                    >
+                        <span>Chcę wiedzieć, co blokuje mój serwis</span>
+                        <Icon name="arrow_forward" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
+            </section>
+
+            {/* FAQ */}
+            <section class="mb-24">
+                <h2 class="font-display text-2xl md:text-4xl font-bold mb-12">
+                    Pytania, które dostaję najczęściej
+                </h2>
+                <div class="space-y-12">
+                    {faqItems.map((item) => (
+                        <div>
+                            <h3 class="font-display text-lg md:text-xl font-semibold mb-4">{item.q}</h3>
+                            <p class="text-lg leading-relaxed text-gray-700">{item.a}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* CTA końcowe */}
+            <section class="mb-32 text-center">
+                <div class="border-t border-black/10 pt-16">
+                    <p class="font-display text-2xl md:text-4xl font-bold mb-8 leading-tight">
+                        Zamiast zgadywać, sprawdźmy to w danych.
+                    </p>
+                    <a
+                        href="/kontakt"
+                        class="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full hover:bg-black/90 transition-all font-medium interactive group"
+                    >
+                        <span>Chcę wiedzieć, co blokuje mój serwis</span>
+                        <Icon name="arrow_forward" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</MainLayout>

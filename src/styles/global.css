@@ -16,17 +16,37 @@
 @import '@fontsource/syne/700.css';
 @import '@fontsource/syne/800.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #050505;
+  --color-secondary: #f4f4f4;
+  --color-accent: #333;
+
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "Space Grotesk", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-bounce-slow: bounce 3s infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
 
 /* Custom cursor styles */
-body {
+body.custom-cursor {
   cursor: none;
 }
 
 @media (max-width: 768px) {
-  body {
+  body.custom-cursor {
     cursor: auto;
   }
 }

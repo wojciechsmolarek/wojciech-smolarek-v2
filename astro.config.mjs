@@ -1,19 +1,23 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wojciechsmolarek.pl',
   integrations: [
     react(),
-    tailwind({
-      applyBaseStyles: false, // We'll use our own global.css
-    })
+    sitemap(),
   ],
   output: 'static',
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   vite: {
+    plugins: [tailwindcss()],
     build: {
       minify: 'esbuild',
       cssMinify: true,
